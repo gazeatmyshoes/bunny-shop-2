@@ -18,8 +18,30 @@ The functionality of the app includes the following features:
 - Admin panel to manage products at `/admin?key=<ADMIN_KEY>`
 - Broadcast messages to all buyers using `/broadcast` command
 - Orders stored in a SQLite database
+- Docker-based deployment with HTTPS out of the box
 
 ![Laurel Cafe Mini App](/screenshots/laurel-cafe-mini-app.png)
+
+## Настройка нового бота
+
+1. Создайте бота через [@BotFather](https://t.me/BotFather) и получите `BOT_TOKEN`.
+2. Выполните `/setdomain` у BotFather и укажите `https://<ваш-домен>` – этот домен будет использован в переменной `DOMAIN`.
+3. Скопируйте `.env.example` в `.env` и заполните параметры:
+   - `BOT_TOKEN` – токен бота
+   - `DOMAIN` – публичный домен
+   - `ADMIN_CHAT_ID` – Telegram ID администратора
+   - `ADMIN_KEY` – секрет для `/admin` и `/broadcast`
+4. Запустите `docker-compose up -d --build` для развёртывания сервиса.
+5. Вебхук настроится автоматически при старте контейнера.
+
+Панель администратора будет доступна по адресу `https://<ваш-домен>/admin?key=<ADMIN_KEY>`.
+
+## Основные изменения
+
+- Добавлена база данных и запись заказов
+- Реализована админ-панель `/admin` и команда `/broadcast`
+- Веб-приложение переведено на русский и дополнено контролами количества
+- Разработка и запуск упростились благодаря Docker и автоматической настройке HTTPS
 
 ## Before we start
 
