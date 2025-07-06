@@ -31,7 +31,10 @@ The functionality of the app includes the following features:
    - `DOMAIN` – публичный домен
    - `ADMIN_CHAT_ID` – Telegram ID администратора
    - `ADMIN_KEY` – секрет для `/admin` и `/broadcast`
+
    - При локальном запуске можно не задавать DOMAIN, вебхук тогда не устанавливается.
+
+
 4. Запустите `docker-compose up -d --build` для развёртывания сервиса.
 5. Вебхук настроится автоматически при старте контейнера.
 
